@@ -1,0 +1,216 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f8f8;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3vw; /* Responsive font size based on viewport width */
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 70px);
+    grid-template-rows: repeat(6, 70px);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+  }
+  /* Enlarge individual grid cells */
+  .grid .cell {
+    width: 70px;
+    height: 70px;
+    font-size: 2em; /* Larger text for letters */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    text-transform: uppercase;
+  }
+  .input-container {
+    display: flex;
+    width: calc(5 * 15vw + 4 * 1vw); /* Matches the grid's total width */
+    max-width: calc(5 * 70px + 4 * 10px); /* Maximum width of grid */
+    margin-top: 10px;
+  }
+  /* Increase input and button size */
+  #guess-input {
+    font-size: 1.5vw;
+    padding: 0.8vw;
+    width: 70%; /* Takes up 70% of the input-container width */
+    height: 15vw;
+    max-height: 70px;
+    margin-right: 1vw;
+  }
+  
+  #submit-guess {
+    font-size: 0.8vw;
+    padding: 0.8vw;
+    width: 30%; /* Takes up 30% of the input-container width */
+    height: 15vw;
+    max-height: 70px;
+  }
+  
+  .grid div {
+    border: 2px solid #ccc;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+  }
+  
+  .correct {
+    background-color: #6aaa64;
+    color: white;
+  }
+  
+  .present {
+    background-color: #c9b458;
+    color: white;
+  }
+  
+  .absent {
+    background-color: #787c7e;
+    color: white;
+  }
+  /* Colors */
+.correct {
+  background-color: #6aaa64;
+  color: white;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.present {
+  background-color: #c9b458;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.absent {
+  background-color: #787c7e;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* Win animation: bounce */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.5s ease forwards;
+}
+
+/* Message styling */
+#message {
+  font-size: 1.2em;
+  margin-top: 10px;
+  transition: opacity 0.3s ease;
+}
+
+/* Fade-in animation for general messages */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Shake animation for incorrect input */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+ul.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #532E1F;
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 12px solid #F1C500;
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+ul.navbar li {
+  list-style-type: none;
+}
+
+ul.navbar li a, .title {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+#scoreboard {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+#play-again {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  margin-top: 20px;
+  display: none; /* Hidden until the game ends */
+}
+
+
+/* Bounce animation for the winning row */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+.bounce {
+  animation: bounce 1s;
+}
+
+
